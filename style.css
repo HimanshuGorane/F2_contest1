@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+h2{
+    color: white;
+  width:647px ;
+  height:58px ;
+  top:62px ;
+  font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 58px;
+display: flex;
+margin-left: 65px;
+}
+
+.bname{
+    color: white;
+    height: 29px;
+width: 131px;
+margin-left: 65px;
+top: 176px;
+border-radius: undefinedpx;
+font-family: Inter;
+font-size: 24px;
+font-weight: 400;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+
+
+}
+
+.input1{
+    border-radius: 1% solid broun
+    ;
+    width: 322px;
+    height: 31px;
+    border: 1px solid #FFFFFF;
+
+}
+
+.issto{
+    color: white;
+    width: 109px;
+height: 29px;
+left: 65px;
+top: 280px;
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+margin-left: 65px;
+}
+
+.input2{
+    border: 1px solid #FFFFFF;;
+
+    width: 322px;
+    height: 31px;
+    margin-left: 23px;
+}
+
+#issue-book-btn{
+    
+    color: black;
+    width: 712px;
+    height: 46px;
+    left: 65px;
+    top: 384px;
+    background-color: #FFFFFF;
+    margin-left: 66px;
+    width: 440px;
+    margin-top: 22px;
+
+}
+
+#issue-book-btn:hover{
+    cursor: pointer;
+}
+
+#issued-books-table{
+    color: white;
+    margin-left: 67px;
+    margin-top: 17px;
+    
+}

@@ -1,24 +1,43 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <button onclick="PrintStudentswithMap()">
-      Console log Students with Map
-    </button>
-    <button onclick="PrintStudentsbyForEach()">
-      Console log Students with foreach
-    </button>
-    <button onclick="addData()">Console New Data with 4th Student</button>
-    <button onclick="removeFailedStudent()">Remove Failed Student</button>
-    <button onclick="concatenateArray()">concatenateArray</button>
 
-    <script src="./script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Liabrary Management System</title>
+
+<body>
+
+  <h2>Liabrary Management System</h2>
+
+  <form id="book-form">
+    <label for="book-name-input" class="bname">Book Name</label>
+    <span><input type="text" id="book-name-input" name="book_name" class="input1" required></span>
+    <br>
+    <label for="issued-to-input" class="issto">Issued To</label>
+    <input type="text" id="issued-to-input" name="issued_to" class="input2" required>
+    <br>
+    <button type="submit" id="issue-book-btn">Issue Book</button>
+  </form>
+
+
+  <table id="issued-books-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Book Name</th>
+        <th>Issued To</th>
+        <th>Issued Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script src="demo.js"></script>
+</body>
+
 </html>

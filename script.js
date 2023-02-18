@@ -1,44 +1,48 @@
-/** @format */
+// Define an array to store the details of the issued books
+const issuedBooks = [];
 
-let arr = [
-  { id: 1, name: "john", age: "18", marks: 80 },
-  { id: 2, name: "jack", age: "20", marks: 85 },
-  { id: 3, name: "karen", age: "19", marks: 35 },
-];
+// Get references to the form and table elements
+const bookForm = document.querySelector('#book-form');
+const issuedBooksTable = document.querySelector('#issued-books-table tbody');
 
-function PrintStudentswithMap() {
-  //Write your code here , just console.log
-  arr.filter(student=>student.marks>=50)
-  .map(student=>console.log(`Name:${arr.name},Age:${arr.age}:Marks:${arr.marks}`));
-}
+// Add an event listener to the form's submit button
+bookForm.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-function PrintStudentsbyForEach() {
-  //Write your code here , just console.log
-  arr.forEach(student => {
-    if (student.marks >= 50) {
-      console.log(
-        `Name: ${student.name}, Age: ${student.age}, Marks: ${student.marks}`
-      );
-    }
-  });
-}
+  // Get the values from the form
+  const bookName = document.querySelector('#book-name-input').value;
+  const issuedTo = document.querySelector('#issued-to-input').value;
 
-function addData() {
-  //Write your code here, just console.log
-  let newStudent = { id: 4, name: "Himanshu", age: "22", marks: 45 };
-  arr.push(newStudent);
-  console.log(arr);
-}
 
-function removeFailedStudent() {
-  //Write your code here, just console.log
-  let pass = arr.filter(student=>student.marks>=50);
-  console.log(pass);
-}
+  const issuedBook = {                           // Create a new issued book object and add it to the issuedBooks array
+    id: issuedBooks.length + 1,
+    book_name: bookName,
+    issued_to: issuedTo,
+    issued_time: new Date(),
+    status: "not returned"
+  };
+  issuedBooks.push(issuedBook);
 
-function concatenateArray() {
-  //Write your code here, just console.log
-  let newStudents = [    { id: 5, name: "Saurabh", age: "21", marks: 65 },    { id: 5, name: "Lakhan", age: "20", marks: 75 },    { id: 6, name: "yakoob", age: "19", marks: 55 }  ];
-  let combinedArray = arr.concat(newStudents);
-  console.log(combinedArray);
-}
+
+  const newRow = issuedBooksTable.insertRow();  // Update the table with the new row for the issued book
+  newRow.innerHTML = `
+    <td>${issuedBook.id}</td>
+    <td>${issuedBook.book_name}</td>
+    <td>${issuedBook.issued_to}</td>
+    <td>${issuedBook.issued_time.toLocaleString()}</td>
+    <td class="status">${issuedBook.status}</td>
+  `;
+});
+
+// Add an event listener to the table to handle changes to the status column
+issuedBooksTable.addEventListener('click', (event) => {
+  if (event.target.classList.contains('status')) {
+    const statusCell = event.target;
+    const row = statusCell.parentElement;
+    const id = Number(row.cells[0].textContent);
+    const issuedBook = issuedBooks.find(book => book.id === id);
+    issuedBook.status = issuedBook.status === "not returned" ? "returned" : "not returned";
+    statusCell.textContent = issuedBook.status;
+    statusCell.style.color = issuedBook.status === "returned" ? "green" : "red";
+  }
+});
